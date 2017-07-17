@@ -12,9 +12,9 @@ export function App (sources) {
     .select('recipes')
     .flatten()
     .map(response => response.body.data)
+    .startWith([])
 
   let vdom$ = response$
-    .startWith([])
     .map(results =>
       div('.recipes-list', results.map(result =>
         div('.recipe', [
